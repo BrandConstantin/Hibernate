@@ -2,10 +2,12 @@ package es.hibernate.conexion;
 
 import javax.persistence.*;
 
-@Entity //para crear nuestra clase en entidades
+@Entity  //para crear nuestra clase en entidades
 @Table(name="clientes")
 public class Clientes {
-	@Column(name="id")
+	@Column(name="id", unique = true, nullable = false)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(name="nombre")
