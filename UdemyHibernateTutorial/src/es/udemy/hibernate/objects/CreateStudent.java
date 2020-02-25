@@ -20,7 +20,7 @@ public class CreateStudent {
 		
 		try {
 			// create a student object
-			Student tempStudent = new Student("Mary", "Dougles", "mary@doug.usa");
+			Student tempStudent = new Student("Catalina", "Becks", "catalina@b.usa");
 			
 			// start transaction
 			session.beginTransaction();
