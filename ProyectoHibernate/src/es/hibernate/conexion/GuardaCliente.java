@@ -14,7 +14,7 @@ public class GuardaCliente {
 		
 		try {
 			// crear objeto clientes
-			Clientes cliente1 = new Clientes("Jesús", "Galleta", "Jaén");
+			Clientes cliente1 = new Clientes("Pablo", "Urtzigale", "Batasuna");
 			
 			// ejecutar transacción sql
 			// comenzar transacción
@@ -25,6 +25,16 @@ public class GuardaCliente {
 			miSession.getTransaction().commit();
 			
 			System.out.println("Registro insertado correctamente en la BBDD");
+			
+			// leer registro
+			miSession.beginTransaction();
+			System.out.println("Lectura del registro con Id " + cliente1.getId());
+			
+			Clientes clienteInsertado = miSession.get(Clientes.class, cliente1.getId());
+			System.out.println("Registro : " + clienteInsertado);
+			
+			miSession.getTransaction().commit();
+			
 			miSession.close();
 		} finally {
 			miFactory.close();
