@@ -1,11 +1,17 @@
 package es.hibernate.crud;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import es.hibernate.dateutils.DateUtils;
 
 @Entity
 @Table(name="employee")
@@ -24,12 +30,17 @@ public class Employee {
 	@Column(name="company")
 	private String company;
 	
+	@Column(name="modifiedDate")
+    @Temporal(TemporalType.DATE)    
+    private Date dateOfModified;
+	
 	public Employee() {}
 
-	public Employee(String firstName, String lastName, String company) {
+	public Employee(String firstName, String lastName, String company, Date dateOfModified) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.company = company;
+		this.dateOfModified = dateOfModified;
 	}
 
 	public int getId() {
@@ -64,10 +75,18 @@ public class Employee {
 		this.company = company;
 	}
 
+	public Date getDateOfModified() {
+		return dateOfModified;
+	}
+
+	public void setDateOfModified(Date dateOfModified) {
+		this.dateOfModified = dateOfModified;
+	}
+
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", company=" + company
-				+ "]";
+				+ ", dateOfModified=" + DateUtils.formatDate(dateOfModified) + "]";
 	}
 	
 }
