@@ -9,7 +9,7 @@ import es.udemy.hibernate.entity.Instructor;
 import es.udemy.hibernate.entity.InstructorDetail;
 import es.udemy.hibernate.entity.Student;
 
-public class CreateInstructorDemo {
+public class DeleteInstructorCoursesDemo {
 
 	public static void main(String[] args) {
 		// create session factory
@@ -24,20 +24,16 @@ public class CreateInstructorDemo {
 		Session session = factory.getCurrentSession();
 		
 		try {
-			// create the objects
-			Instructor tempInstructor = new Instructor("Kaly", "Right", "kaly.r@hibernate.com");
-			InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.spring.com", "Spring");
-			
-			// associate the objects
-			tempInstructor.setInstructorDetail(tempInstructorDetail);
-			
 			// start transaction
 			session.beginTransaction();
 			
-			// save the instructor and detail object because of CascadeType.All
-			System.out.println("Saving instructor " + tempInstructor);
-			session.save(tempInstructor);
-			
+			// get the course from db
+			int theId = 10;
+			Course tempCourse = session.get(Course.class, theId);
+
+			System.out.println("Deleting : " + tempCourse);
+			session.delete(tempCourse);
+						
 			//commit transaction
 			session.getTransaction().commit();
 		}finally{
