@@ -19,7 +19,7 @@ public class ReadEmployee {
 		
 		try {
 			// create a employee object
-			Employee tempEmployee = new Employee("Oliver", "Stone", "Canada Company");
+			Employee tempEmployee = new Employee("Oliver", "Stone", "Canada Company", null);
 			
 			// start transaction
 			session.beginTransaction();
