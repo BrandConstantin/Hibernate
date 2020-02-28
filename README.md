@@ -1,6 +1,9 @@
 # Hibernate
-Curso de pildorasinformaticas de Hibernate
-
+## Curso de pildorasinformaticas de Hibernate
+- Creación proyecto y conexión BBDD
+- Configuración y Mapeo ORM
+- Insertar registro BBDD vía ORM
+- Asignar clave primaria
 
 ## Curso udemy
 - setting hibernate environment
