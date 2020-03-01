@@ -12,7 +12,7 @@ import es.udemy.hibernate.entity.InstructorDetail;
 import es.udemy.hibernate.entity.Review;
 import es.udemy.hibernate.entity.Student;
 
-public class CreateCourseAndStudentsDemo {
+public class DeleteCourseForAlexandraDemo {
 
 	public static void main(String[] args) {
 		// create session factory
@@ -32,26 +32,14 @@ public class CreateCourseAndStudentsDemo {
 			// start transaction
 			session.beginTransaction();
 			
-			// create a course
-			Course tempCourse = new Course("Java");
-			
-			// save the course and leverage the cascade all
-			System.out.println("Saving...");
-			session.save(tempCourse);
-			
-			// create the students
-			Student thempStudent1 = new Student("Alenxandra", "Doe", "alex.doe@udemy.es");
-			Student thempStudent2 = new Student("Vivian", "Depardeus", "guviere@udemy.es");
-			
-			// add students to course
-			tempCourse.addStudent(thempStudent1);
-			tempCourse.addStudent(thempStudent2);
-			
-			// save the students
-			session.save(thempStudent1);
-			session.save(thempStudent2);
-			System.out.println("Students saved " + tempCourse.getStudents());
-			
+			// get the course from db
+			int courseId = 14;
+			Course tempCourse = session.get(Course.class, courseId);
+			System.out.println("Delete " + tempCourse.getTitle());
+
+			// delete the course
+			session.delete(tempCourse);
+
 			//commit transaction
 			session.getTransaction().commit();
 		}finally{
