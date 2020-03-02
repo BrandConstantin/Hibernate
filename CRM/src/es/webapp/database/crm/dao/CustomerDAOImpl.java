@@ -19,7 +19,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	private SessionFactory sessionFactory; // is the session factory from spring-mvc-crud-demo-servlet.xml
 
 	@Override
-	@Transactional
+//	@Transactional
 	public List<Customer> getCustomers() {
 		// get the current hibernate session
 		Session currSession = sessionFactory.getCurrentSession();
