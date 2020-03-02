@@ -1,0 +1,9 @@
+package es.webapp.database.crm.dao;
+
+import java.util.List;
+
+import es.webapp.database.crm.entity.Customer;
+
+public interface CustomerDAO {
+	public List<Customer> getCustomers();
+}
