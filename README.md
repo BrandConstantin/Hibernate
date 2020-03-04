@@ -1,5 +1,5 @@
 # Hibernate
-## Curso de pildorasinformaticas de Hibernate
+## Curso de pildorasinformaticas
 - Creación proyecto y conexión BBDD
 - Configuración y Mapeo ORM
 - Insertar registro BBDD vía ORM
