@@ -4,6 +4,10 @@
 - Configuración y Mapeo ORM
 - Insertar registro BBDD vía ORM
 - Asignar clave primaria
+- Consultas BBDD con HQL
+- Update
+- Delete
+- Relaciones entre tablas
 
 ## Curso udemy
 - setting hibernate environment
