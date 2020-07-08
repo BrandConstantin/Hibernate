@@ -21,12 +21,17 @@ public class ObtenerCliente {
 			System.out.println(elCliente);
 			System.out.println(elCliente.getCliente());
 			
+			System.out.println("Eliminar en cascada");
+			miSession.delete(elCliente);
+			
 			miSession.getTransaction().commit();
 
-
-			miSession.close();
-		} finally {
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
 			miFactory.close();
+				
+			miSession.close();
 		}
 	}
 
