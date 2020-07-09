@@ -4,7 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class EliminaCliente {
+public class EliminaDetallesCliente {
 	public static void main(String[] args) {
 		SessionFactory miFactory = new Configuration().configure("hibernate.cfg.xml")
 				.addAnnotatedClass(Cliente.class)
@@ -16,19 +16,17 @@ public class EliminaCliente {
 		try {		
 			miSession.beginTransaction();
 			
-			Cliente elCliente = miSession.get(Cliente.class, 3);
+			DetallesCliente detallesDelCliente = miSession.get(DetallesCliente.class, 2);
 			
-			if(elCliente != null) {
-				miSession.delete(elCliente);													
+			detallesDelCliente.getCliente().setDetallesCliente(null);
+			
+			if(detallesDelCliente != null) {
+				miSession.delete(detallesDelCliente);													
 			}
 			
 			miSession.getTransaction().commit();
 			
-			if(elCliente != null) {
-				System.out.println("Registro borrado correctamente en la BBDD");
-			}else {
-				System.out.println("Registro no encontrado");
-			}
+			System.out.println("Registro borrado correctamente en la BBDD");
 			
 			miSession.close();
 		} finally {

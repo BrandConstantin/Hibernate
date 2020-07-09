@@ -19,7 +19,8 @@ public class DetallesCliente {
 	@Column(name="comentarios")
 	private String comentarios;
 	
-	@OneToOne(mappedBy = "detallesCliente", cascade = CascadeType.ALL)
+//	@OneToOne(mappedBy = "detallesCliente", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "detallesCliente")
 	private Cliente cliente;
 
 	public DetallesCliente() {
