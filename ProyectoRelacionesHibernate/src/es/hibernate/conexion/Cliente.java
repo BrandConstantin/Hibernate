@@ -1,5 +1,8 @@
 package es.hibernate.conexion;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 import com.sun.javafx.scene.CssFlags;
@@ -20,6 +23,9 @@ public class Cliente {
 	
 	@Column(name="direccion")
 	private String direccion;
+	
+	@OneToMany(mappedBy = "cliente", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+	private List<Pedido> pedidos;
 	
 	//nececita dos constructores, uno por defecto sin parámetros y otro con todos los parametros
 	public Cliente() {	}
@@ -80,5 +86,14 @@ public class Cliente {
 	public String toString() {
 		return "Clientes [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion
 				+ "]";
+	}
+	
+	public void agregarPedidos(Pedido elPedido) {
+		if(pedidos == null) {
+			pedidos = new ArrayList<>();
+			
+			pedidos.add(elPedido);
+			elPedido.setCliente(this);
+		}
 	}
 }
