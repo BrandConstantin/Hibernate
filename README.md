@@ -8,6 +8,10 @@
 - Update
 - Delete
 - Relaciones entre tablas
+  - OneToOne - insertar
+  - OneToOne - borrar
+  - OneToOne - bidireccional
+  - ManyToOne
 
 ## Curso udemy
 - setting hibernate environment
